@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .layui-laypage {
+            display: inline-block;
+            vertical-align: middle;
+            margin: 10px 0;
+            font-size: 0;
+        }
+        .layui-box, .layui-box * {
+            -webkit-box-sizing:content-box; -moz-box-sizing:content-box; box-sizing:content-box;
+        }
+        .layui-laypage .layui-laypage-count, .layui-laypage .layui-laypage-limits, .layui-laypage .layui-laypage-skip{
+            margin-left: 10px;
+            margin-right: 10px;
+            padding: 0;
+            border: none;
+        }
+        .layui-laypage a, .layui-laypage span{
+            display: inline-block;
+            vertical-align: middle;
+            padding: 0 15px;
+            height: 28px;
+            line-height: 28px;
+            margin: 0 -1px 5px 0;
+            background-color: #fff;
+            color: #333;
+            font-size: 12px;
+        }
+        .layui-laypage a {
+            text-decoration: none;
+        }
+        .layui-laypage select{
+            height: 22px;
+            padding: 3px;
+            border-radius: 2px;
+            cursor: pointer;
+        }
+        .layui-laypage input{
+            display: inline-block;
+            width: 40px;
+            margin: 0 10px;
+            padding: 0 3px;
+            text-align: center;
+        }
+        .layui-laypage button{
+            margin-left: 10px;
+            padding: 0 10px;
+            cursor: pointer;
+        }
+        .layui-laypage button, .layui-laypage input {
+            height: 30px;
+            line-height: 30px;
+            border-radius: 2px;
+            vertical-align: top;
+            background-color: #fff;
+            box-sizing: border-box;
+        }
+        .layui-laypage a, .layui-laypage button, .layui-laypage input, .layui-laypage select, .layui-laypage span {
+            border: 1px solid #e2e2e2;
+        }
+        button, input, optgroup, option, select, textarea{
+            font-family: inherit;
+            font-size: inherit;
+            font-style: inherit;
+            font-weight: inherit;
+            outline: 0;
+        }
+        .layui-laypage .layui-laypage-skip{
+            height: 30px;
+            line-height: 30px;
+            color: #999;
+        }
+        .layui-laypage .layui-laypage-count, .layui-laypage .layui-laypage-limits, .layui-laypage .layui-laypage-skip {
+            margin-right: 10px;
+            padding: 0;
+            border: none;
+        }
+        .layui-laypage .layui-laypage-limits{
+            vertical-align:top;
+        }
+        .layui-laypage .layui-laypage-curr{
+            position: relative;
+        }
+        .layui-laypage .layui-laypage-curr .layui-laypage-em {
+            position: absolute;
+            left: -1px;
+            top: -1px;
+            padding: 1px;
+            width: 100%;
+            height: 100%;
+            background-color: #009688;
+        }
+        .layui-laypage .layui-laypage-curr em {
+            position: relative;
+            color: #fff;
+        }
+        .layui-laypage em {
+            font-style: normal;
+        }
+        .layui-laypage-em {
+            border-radius: 2px;
+        }
+    </style>
+</head>
+<body>
+<div id="app"></div>
+<script src="laypage.js"></script>
+<script>
+    var index = laypage.render({
+        elem: 'app',
+        groups: 5,
+        curr: 0,
+        limit: 8,
+        limits: [5,10,20,30],
+        count: 100, //数据总数,
+        pages: 40,
+        layout: ['count', 'prev', 'page', 'next', 'limit', 'skip'],
+        jump: function(obj, load){
+            console.log(obj, load);
+        },
+        theme: '#000'
+    });
+    console.log(index);
+</script>
+</body>
+</html>
